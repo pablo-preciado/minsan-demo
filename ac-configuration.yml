@@ -12,6 +12,15 @@
        controller_password: "{{ mypsscontr }}"
        validate_certs: no
        name: "Ministerio Sanidad"
+       state: absent
+
+   - name: Create Ministerio de Sanidad Organization
+     ansible.controller.organization:
+       controller_host: "{{ mydemocontr }}"
+       controller_username: "{{ myusrcontr }}"
+       controller_password: "{{ mypsscontr }}"
+       validate_certs: no
+       name: "Ministerio de Sanidad"
        state: present
 
    - name: Create Github credentials
@@ -19,7 +28,7 @@
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
        controller_password: "{{ mypsscontr }}"
-       name: Github credential
+       name: "Github credential"
        validate_certs: no
        organization: "Ministerio de Sanidad"
        state: present
