@@ -6,7 +6,7 @@
   tasks:
 
    - name: Install the latest version of httpd
-     ansible.builtin.dnf:
+     ansible.builtin.yum:
        name: httpd
        state: latest
 
