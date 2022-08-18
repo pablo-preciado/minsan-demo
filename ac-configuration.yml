@@ -116,7 +116,6 @@
        inventory: "My simple demo inventory"
        project: "My simple demo project"
        playbook: "simple-demo-create-file.yml"
-       verbosity: 3
        credentials: "Localhost credentials"
        state: "present"
 
@@ -132,6 +131,5 @@
        inventory: "My simple demo inventory"
        project: "My simple demo project"
        playbook: "simple-demo-delete-file.yml"
-       verbosity: 3
        credentials: "Localhost credentials"
        state: "present"
