@@ -113,7 +113,7 @@
        name: "Simple demo install"
        job_type: "run"
        organization: "Ministerio de Sanidad"
-       inventory: "Inventory file from Github"
+       inventory: "My simple demo inventory"
        project: "My simple demo project"
        playbook: "simple-demo-install.yml"
        verbosity: 3
@@ -129,7 +129,7 @@
        name: "Simple demo uninstall"
        job_type: "run"
        organization: "Ministerio de Sanidad"
-       inventory: "Inventory file from Github"
+       inventory: "My simple demo inventory"
        project: "My simple demo project"
        playbook: "simple-demo-uninstall.yml"
        verbosity: 3
