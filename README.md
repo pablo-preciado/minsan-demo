@@ -5,8 +5,8 @@ This is an almost empty repo so you can just test basic git configuration with A
 Use ansible-vault to create secrets.yml:
 
 ```
-mydemocontr: "controller22.local"
-myusrcontr: "admin"
+mydemocontr: "your-ac-fqdn-or-ip"
+myusrcontr: "your-ac-username"
 mypsscontr: "your-controller-password"
 myghusr: "your-github-user"
 myghtke: "your-github-token"
