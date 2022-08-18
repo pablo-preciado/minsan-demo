@@ -7,5 +7,5 @@
 
    - name: Uninstall httpd
      ansible.builtin.dnf:
-       name: httpd
+       name: nano
        state: absent
