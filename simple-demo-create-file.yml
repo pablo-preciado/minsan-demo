@@ -1,0 +1,11 @@
+- hosts: localhost
+  gather_facts: no
+  become: true
+
+  tasks:
+
+   - name: Create my-simple-demo-file.txt file in /tmp
+     ansible.builtin.file:
+       path: /tmp/my-simple-demo-file.txt
+       state: touch
+

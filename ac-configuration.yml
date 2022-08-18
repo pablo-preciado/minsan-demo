@@ -104,34 +104,34 @@
        organization: "Ministerio de Sanidad"
        project: "My simple demo project"
 
-   - name: Create "Simple demo install" job template
+   - name: Create "Simple demo create file" job template
      ansible.controller.job_template:
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
        controller_password: "{{ mypsscontr }}"
        validate_certs: no
-       name: "Simple demo install"
+       name: "Simple demo create file"
        job_type: "run"
        organization: "Ministerio de Sanidad"
        inventory: "My simple demo inventory"
        project: "My simple demo project"
-       playbook: "simple-demo-install.yml"
+       playbook: "simple-demo-create-file.yml"
        verbosity: 3
        credentials: "Localhost credentials"
        state: "present"
 
-   - name: Create "Simple demo uninstall" job template
+   - name: Create "Simple demo delete file" job template
      ansible.controller.job_template:
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
        controller_password: "{{ mypsscontr }}"
        validate_certs: no
-       name: "Simple demo uninstall"
+       name: "Simple demo delete file"
        job_type: "run"
        organization: "Ministerio de Sanidad"
        inventory: "My simple demo inventory"
        project: "My simple demo project"
-       playbook: "simple-demo-uninstall.yml"
+       playbook: "simple-demo-delete-file.yml"
        verbosity: 3
        credentials: "Localhost credentials"
        state: "present"
