@@ -5,8 +5,6 @@
 
   tasks:
 
-#The following tasks are aiming at configuring our MySQL database automation demo
-
    - name: Create Ministerio de Sanidad Organization
      ansible.controller.organization:
        controller_host: "{{ mydemocontr }}"
@@ -50,23 +48,20 @@
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
        controller_password: "{{ mypsscontr }}"
-       description: "This is a simple inventory from a github repository"
-       instance_groups: "remote_exec"
        validate_certs: no
        organization: "Ministerio de Sanidad"
        state: present
 
-   - name: Add MySQL demo project
+   - name: Add my simple demo project
      ansible.controller.project:
-       name: "MySQL demo project"
+       name: "My simple demo project"
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
        controller_password: "{{ mypsscontr }}"
        validate_certs: no
-       description: "This project is for managing mysql databases."
        organization: "Ministerio de Sanidad"
        scm_type: git
-       scm_url: https://github.com/pablo-preciado/mysql-test.git
+       scm_url: https://github.com/pablo-preciado/minsan-demo.git
        credential: Github credential
        scm_update_on_launch: True
        scm_clean: yes
@@ -82,66 +77,52 @@
        controller_username: "{{ myusrcontr }}"
        controller_password: "{{ mypsscontr }}"
        validate_certs: no
-       description: Source for inventory
        inventory: "My simple demo inventory"
        organization: "Ministerio de Sanidad"
        source: scm
        source_path: inventory/hosts
-       source_project: "MySQL demo project"
+       source_project: "My simple demo project"
        overwrite: True
        overwrite_vars: yes
        update_on_launch: True
 
-   - name: Launch a MySQL demo project
+   - name: Launch a my simple demo project update
      ansible.controller.project_update:
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
        controller_password: "{{ mypsscontr }}"
        validate_certs: no
        organization: "Ministerio de Sanidad"
-       project: "MySQL demo project"
+       project: "My simple demo project"
 
-   - name: Add MySQL EE to the controller instance > this one is on github
-     ansible.controller.execution_environment:
-       controller_host: "{{ mydemocontr }}"
-       controller_username: "{{ myusrcontr }}"
-       controller_password: "{{ mypsscontr }}"
-       validate_certs: no
-       name: "MySQL EE"
-       image: ghcr.io/pablo-preciado/mysql-test/mysql-ee:20
-       credential: ghcr.io credential
-
-   - name: Create "Install MySQL" job template
+   - name: Create "Simple demo install" job template
      ansible.controller.job_template:
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
        controller_password: "{{ mypsscontr }}"
        validate_certs: no
-       name: "Install MySQL"
+       name: "Simple demo install"
        job_type: "run"
        organization: "Ministerio de Sanidad"
        inventory: "Inventory file from Github"
-       project: "MySQL demo project"
-       playbook: "install-n-start-mysql.yml"
-       instance_groups: "remote_exec"
+       project: "My simple demo project"
+       playbook: "simple-demo-install.yml"
        verbosity: 3
-       credentials: "MySQL host credentials"
+       credentials: "Localhost credentials"
        state: "present"
 
-   - name: Create "Create DB" job template
+   - name: Create "Simple demo uninstall" job template
      ansible.controller.job_template:
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
        controller_password: "{{ mypsscontr }}"
        validate_certs: no
-       name: "Create DB bobdata"
+       name: "Simple demo uninstall"
        job_type: "run"
        organization: "Ministerio de Sanidad"
        inventory: "Inventory file from Github"
-       project: "MySQL demo project"
-       playbook: "db-creation-test.yml"
-       execution_environment: "MySQL EE"
-       instance_groups: "remote_exec"
+       project: "My simple demo project"
+       playbook: "simple-demo-uninstall.yml"
        verbosity: 3
-       credentials: "MySQL host credentials"
+       credentials: "Localhost credentials"
        state: "present"
