@@ -48,8 +48,8 @@
        state: present
        credential_type: Machine
        inputs:
-         username: root
-         password: "{{  myrootpss }}"
+         username: "{{ mytargetusr }}"
+         password: "{{  mytargetpss }}"
 
    - name: Add my simple demo inventory
      ansible.controller.inventory:

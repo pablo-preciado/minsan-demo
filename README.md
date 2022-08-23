@@ -10,7 +10,8 @@ myusrcontr: "your-ac-username"
 mypsscontr: "your-controller-password"
 myghusr: "your-github-user"
 myghtke: "your-github-token"
-myrootpss: "your-root-password-for-managed-host"
+mytargetusr: "your-managed-server-username"
+mytargetpss: "your-password-for-target-server"
 ```
 Use the following command:
 ```
