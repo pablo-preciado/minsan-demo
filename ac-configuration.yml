@@ -39,7 +39,7 @@
 
    - name: Create Machine Credentials for managed server
      ansible.controller.credential:
-       name: Localhost credentials
+       name: Target host credentials
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
        controller_password: "{{ mypsscontr }}"
@@ -129,7 +129,7 @@
        inventory: "My simple demo inventory"
        project: "My simple demo project"
        playbook: "simple-demo-create-file.yml"
-       credentials: "Localhost credentials"
+       credentials: "Target host credentials"
        state: "present"
 
    - name: Create "Simple demo delete file" job template
@@ -144,5 +144,7 @@
        inventory: "My simple demo inventory"
        project: "My simple demo project"
        playbook: "simple-demo-delete-file.yml"
-       credentials: "Localhost credentials"
+       credentials: "Target host credentials"
+       webhook_credential: "GitHub PAT"
+       webhook_service: "github"
        state: "present"
