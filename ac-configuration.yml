@@ -37,7 +37,7 @@
          username: "{{ myghusr }}"
          password: "{{ myghtke }}"
 
-   - name: Create Machine Credentials for localhost
+   - name: Create Machine Credentials for managed server
      ansible.controller.credential:
        name: Localhost credentials
        controller_host: "{{ mydemocontr }}"
@@ -50,6 +50,19 @@
        inputs:
          username: "{{ mytargetusr }}"
          password: "{{  mytargetpss }}"
+
+   - name: Create GitHub Personal Access Token credentials
+     ansible.controller.credential:
+       name: GitHub PAT
+       controller_host: "{{ mydemocontr }}"
+       controller_username: "{{ myusrcontr }}"
+       controller_password: "{{ mypsscontr }}"
+       validate_certs: no
+       organization: "Ministerio de Sanidad"
+       state: present
+       credential_type: 'GitHub Personal Access Token'
+       inputs:
+         token: "{{ myghtke }}"
 
    - name: Add my simple demo inventory
      ansible.controller.inventory:
