@@ -1,0 +1,4 @@
+220823134155.393 ERROR 'ansible_navigator.image_manager.puller._log_message' Execution environment pull failed
+220823134258.446 ERROR 'ansible_navigator.image_manager.puller._log_message' Execution environment pull failed
+220823134339.589 ERROR 'ansible_navigator.image_manager.puller._log_message' Execution environment pull failed
+220823134407.782 WARNING 'ansible_navigator.image_manager.puller._log_message' Image inspection failed, image assumed to be corrupted or missing

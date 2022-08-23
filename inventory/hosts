@@ -1,4 +1,4 @@
 #localhost    ansible_connection=local
 
 [target_hosts]
-target1   ansible_host=misae.preciado
+target1   ansible_host=172.16.211.77
