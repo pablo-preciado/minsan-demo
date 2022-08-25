@@ -11,15 +11,6 @@
        controller_username: "{{ myusrcontr }}"
        controller_password: "{{ mypsscontr }}"
        validate_certs: no
-       name: "Ministerio Sanidad"
-       state: absent
-
-   - name: Create Ministerio de Sanidad Organization
-     ansible.controller.organization:
-       controller_host: "{{ mydemocontr }}"
-       controller_username: "{{ myusrcontr }}"
-       controller_password: "{{ mypsscontr }}"
-       validate_certs: no
        name: "Ministerio de Sanidad"
        state: present
 
