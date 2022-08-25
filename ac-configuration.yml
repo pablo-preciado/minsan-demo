@@ -5,7 +5,7 @@
 
   tasks:
 
-   - name: Create Ministerio de Sanidad Organization
+   - name: 'Create Ministerio de Sanidad Organization'
      ansible.controller.organization:
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
@@ -14,7 +14,7 @@
        name: "Ministerio de Sanidad"
        state: present
 
-   - name: Create Github credentials
+   - name: 'Create Github credentials'
      ansible.controller.credential:
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
@@ -28,7 +28,7 @@
          username: "{{ myghusr }}"
          password: "{{ myghtke }}"
 
-   - name: Create Machine Credentials for managed server
+   - name: 'Create Machine Credentials for managed server'
      ansible.controller.credential:
        name: Target host credentials
        controller_host: "{{ mydemocontr }}"
@@ -42,7 +42,7 @@
          username: "{{ mytargetusr }}"
          password: "{{  mytargetpss }}"
 
-   - name: Create GitHub Personal Access Token credentials
+   - name: 'Create GitHub Personal Access Token credentials'
      ansible.controller.credential:
        name: GitHub PAT
        controller_host: "{{ mydemocontr }}"
@@ -55,7 +55,7 @@
        inputs:
          token: "{{ myghtke }}"
 
-   - name: Add my simple demo inventory
+   - name: 'Add my simple demo inventory'
      ansible.controller.inventory:
        name: "My simple demo inventory"
        controller_host: "{{ mydemocontr }}"
@@ -65,7 +65,7 @@
        organization: "Ministerio de Sanidad"
        state: present
 
-   - name: Add my simple demo project
+   - name: 'Add my simple demo project'
      ansible.controller.project:
        name: "My simple demo project"
        controller_host: "{{ mydemocontr }}"
@@ -83,7 +83,7 @@
        default_environment: "Default execution environment"
        state: present
 
-   - name: Add an inventory source
+   - name: 'Add an inventory source'
      ansible.controller.inventory_source:
        name: "Github inventory source"
        controller_host: "{{ mydemocontr }}"
@@ -99,7 +99,7 @@
        overwrite_vars: yes
        update_on_launch: True
 
-   - name: Launch a my simple demo project update
+   - name: 'Launch a my simple demo project update'
      ansible.controller.project_update:
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
@@ -108,7 +108,7 @@
        organization: "Ministerio de Sanidad"
        project: "My simple demo project"
 
-   - name: Create "Simple demo create file" job template
+   - name: 'Create "Simple demo create file" job template'
      ansible.controller.job_template:
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
@@ -123,7 +123,7 @@
        credentials: "Target host credentials"
        state: "present"
 
-   - name: Create "Simple demo delete file" job template
+   - name: 'Create "Simple demo delete file" job template'
      ansible.controller.job_template:
        controller_host: "{{ mydemocontr }}"
        controller_username: "{{ myusrcontr }}"
