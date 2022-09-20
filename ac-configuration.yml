@@ -164,7 +164,7 @@
        organization: "Ministerio de Sanidad"
        inventory: "My simple demo inventory"
        project: "My simple demo project"
-       playbook: "simple-demo-delete-file.yml"
+       playbook: "superhero-name.yml"
        credentials: 
          - "Target host credentials"
          - "Ansible-vault credential"
