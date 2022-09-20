@@ -1,0 +1,13 @@
+---
+# tasks file for manage-secret
+
+  - name: Read secret file
+    include_vars: "my-secret-information.yml"
+
+  - name: Display superhero
+    debug:
+      msg: "{{ secret.superhero }}"
+
+  - name: Display real name of superhero
+    debug:
+      msg: "{{ secret.name }}"
