@@ -1,13 +1,17 @@
 ---
-# tasks file for manage-secret
+- hosts: target1
+  gather_facts: no
+  become: true
 
-  - name: Read secret file
-    include_vars: "my-secret-information.yml"
+  tasks:
 
-  - name: Display superhero
-    debug:
-      msg: "{{ secret.superhero }}"
+    - name: Read secret file
+      include_vars: "my-secret-information.yml"
 
-  - name: Display real name of superhero
-    debug:
-      msg: "{{ secret.name }}"
+    - name: Display superhero
+      debug:
+        msg: "{{ secret.superhero }}"
+
+    - name: Display real name of superhero
+      debug:
+        msg: "{{ secret.name }}"
