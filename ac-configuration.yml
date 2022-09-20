@@ -55,6 +55,19 @@
        inputs:
          token: "{{ myghtke }}"
 
+   - name: 'Create vault credentials credentials'
+     ansible.controller.credential:
+       controller_host: "{{ mydemocontr }}"
+       controller_username: "{{ myusrcontr }}"
+       controller_password: "{{ mypsscontr }}"
+       name: "Ansible-vault credential"
+       validate_certs: no
+       organization: "Ministerio de Sanidad"
+       state: present
+       credential_type: Vault
+       inputs:
+         password: "redhat"
+
    - name: 'Add my simple demo inventory'
      ansible.controller.inventory:
        name: "My simple demo inventory"
@@ -136,6 +149,25 @@
        project: "My simple demo project"
        playbook: "simple-demo-delete-file.yml"
        credentials: "Target host credentials"
+       webhook_credential: "GitHub PAT"
+       webhook_service: "github"
+       state: "present"
+
+   - name: 'Create "Superhero data" job template'
+     ansible.controller.job_template:
+       controller_host: "{{ mydemocontr }}"
+       controller_username: "{{ myusrcontr }}"
+       controller_password: "{{ mypsscontr }}"
+       validate_certs: no
+       name: "Superhero data"
+       job_type: "run"
+       organization: "Ministerio de Sanidad"
+       inventory: "My simple demo inventory"
+       project: "My simple demo project"
+       playbook: "simple-demo-delete-file.yml"
+       credentials: 
+         - "Target host credentials"
+         - "Ansible-vault credential"
        webhook_credential: "GitHub PAT"
        webhook_service: "github"
        state: "present"
